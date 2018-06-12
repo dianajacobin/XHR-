@@ -4,14 +4,14 @@ const responseContainer = document.getElementById('response-container'); //boton
 let searchedForText;
 
 
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit',  (e) => {
  e.preventDefault();
  responseContainer.innerHTML=' ';
  searchedForText= searchField.value;
  getNews();
 }); 
 //crearemos las peticiones
- function getNews () {
+ getNews = () => {
     const articleRequest=new XMLHttpRequest();                                                                                                                                                                                            
     articleRequest.open('GET', `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=06a969bb2a8947fc85ec2500771f4f8d`);
     articleRequest.onload = addNews;
@@ -19,9 +19,9 @@ form.addEventListener('submit', function (e) {
     articleRequest.send();
 }
 
- function handleError () { console.log ('Se ha presentado un error');}
+ handleError = () => console.log ('Se ha presentado un error');
 
- function addNews () {
+ addNews = () => {
      const data=JSON.parse(this.responseText);
      const article = data.response.docs [0];
      const title = article.headline.main;
