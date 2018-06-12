@@ -23,9 +23,12 @@ form.addEventListener('submit', function (e) {
 
  function addNews () {
      const data=JSON.parse(this.responseText);
-     const response = data.response;
-     console.log(response);
+     const article = data.response.docs [0];
+     const title = article.headline.main;
+     const snippet = article.snippet;
  
- }
-
-
+     let li = document.createElement('li');
+     li.className = 'article.class';
+     li.innerText = snippet;
+     responseContainer.appendChild(li);
+}
