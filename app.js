@@ -7,7 +7,7 @@ let searchedForText;
 form.addEventListener('submit', function (e) {
  e.preventDefault();
  responseContainer.innerHTML=' ';
- searchdForText= searchField.value;
+ searchedForText= searchField.value;
  getNews();
 }); 
 //crearemos las peticiones
